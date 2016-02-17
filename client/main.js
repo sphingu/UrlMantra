@@ -1,6 +1,6 @@
 import {createApp} from 'mantra-core';
+import coreModule from "./modules/core";
 import initContext from './configs/context';
-// INSERT IMPORT
 
 // modules
 
@@ -9,5 +9,7 @@ const context = initContext();
 
 // create app
 const app = createApp(context);
-// INSERT MODULE
+
+app.loadModule(coreModule);
+
 app.init();

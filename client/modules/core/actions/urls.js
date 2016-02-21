@@ -16,8 +16,11 @@ export default {
     });
     FlowRouter.go(`/url/${id}`);
   },
-  
+
   clearErrors({LocalState}) {
    return LocalState.set('ERROR', null);
-  }
+ },
+ toggleAddUrlDialog({LocalState}){
+     LocalState.set('isOpenAddUrlDialog', !LocalState.get('isOpenAddUrlDialog'));
+ }
 };

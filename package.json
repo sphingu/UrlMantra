@@ -9,7 +9,7 @@
     "test": "npm run lint && npm run testonly",
     "test-watch": "npm run testonly -- --watch --watch-extensions js,jsx"
   },
- "devDependencies": {
+  "devDependencies": {
     "babel-core": "6.x.x",
     "babel-plugin-react-require": "2.x.x",
     "babel-polyfill": "6.x.x",
@@ -27,9 +27,9 @@
   },
   "dependencies": {
     "domready": "^1.0.8",
+    "mantra-core": "^1.2.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "mantra-core": "^1.2.0",
     "react-mounter": "^1.0.0"
   },
   "repository": {

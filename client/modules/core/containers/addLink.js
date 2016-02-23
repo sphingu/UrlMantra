@@ -1,22 +1,22 @@
 import {   useDeps, composeWithTracker, composeAll } from 'mantra-core';
-import AddUrl from '../components/addUrl.jsx';
+import AddLink from '../components/addLink.jsx';
 
 export const composer = ({ context, clearErrors }, onData) => {
   const {LocalState} = context();
-  const isOpenAddUrlDialog =  LocalState.get('isOpenAddUrlDialog') || false ;
-  onData(null,{isOpenAddUrlDialog});
+  const isOpenAddLinkDialog =  LocalState.get('isOpenAddLinkDialog') || false ;
+  onData(null,{isOpenAddLinkDialog});
 
   // clearErrors when unmounting the component
   return clearErrors;
 };
 
 export const depsMapper = (context, actions) =>({
-  toggleAddUrlDialog: actions.urls.toggleAddUrlDialog,
-  clearErrors: actions.urls.clearErrors,
+  toggleAddLinkDialog: actions.links.toggleAddLinkDialog,
+  clearErrors: actions.links.clearErrors,
   context: ()=> context
 });
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(AddUrl);
+)(AddLink);

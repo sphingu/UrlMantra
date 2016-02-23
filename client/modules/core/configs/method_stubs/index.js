@@ -1,5 +1,5 @@
-import urls from './urls';
+import links from './links';
 
 export default function (context) {
-  urls(context);
+  links(context);
 }

@@ -1,20 +1,20 @@
 import React from 'react';
-import AddUrl from './addUrl.jsx';
+import AddLink from './addLink.jsx';
 
-function ToShort(url){
-  if(url.length>18){
-    return url.substring(0,18)+"...";
+function ToShort(text){
+  if(text.length>18){
+    return text.substring(0,18)+"...";
   }
-  return url;
+  return text;
 }
-class UrlList extends React.Component {
+class LinkList extends React.Component {
   render(){
-    const {urls} = this.props;
+    const {links} = this.props;
 
     return (
       <div>
         <div className="ui center aligned basic segment">
-          <div className="ui teal labeled icon button" onClick={this.openCreateUrlDialog.bind(this)}>
+          <div className="ui teal labeled icon button" onClick={this.openCreateLinkDialog.bind(this)}>
             Create New
             <i className="add icon"></i>
           </div>
@@ -29,18 +29,18 @@ class UrlList extends React.Component {
         </div>
 
         <div className="ui four cards doubling stackable">
-          {urls.map(url=>(
-            <div key={url._id} className="ui fluid card blue" href="#">
+          {links.map(link=>(
+            <div key={link._id} className="ui fluid card blue" href="#">
               <div className="content">
                 <i className="right floated like icon"></i>
                 <i className="right floated star icon"></i>
-                <div className="header" title={url.url}>{ToShort(url.url)}</div>
+                <div className="header" title={link.title}>{ToShort(link.title)}</div>
                 <div className="meta">
                   <span className="right floated time">2 days ago</span>
                   <span className="category">Category</span>
                 </div>
                 <div className="description">
-                  <p>description {url.id}...</p>
+                  <p>description {link.id}...</p>
                   <p>read more</p>
                 </div>
               </div>
@@ -60,14 +60,14 @@ class UrlList extends React.Component {
               </div>
             ))}
           </div>
-          <AddUrl {...this.props} />
+          <AddLink {...this.props} />
         </div>
     );
   }
-  openCreateUrlDialog(){
-      const {toggleAddUrlDialog} = this.props;
-      toggleAddUrlDialog();
+  openCreateLinkDialog(){
+      const {toggleAddLinkDialog} = this.props;
+      toggleAddLinkDialog();
   }
 }
 
-export default UrlList;
+export default LinkList;
